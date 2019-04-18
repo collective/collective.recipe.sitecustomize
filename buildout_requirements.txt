@@ -1,0 +1,3 @@
+# Keep in sync with versions.cfg
+setuptools==39.1.0
+zc.buildout==2.11.4

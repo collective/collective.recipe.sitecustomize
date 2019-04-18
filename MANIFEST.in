@@ -1,0 +1,5 @@
+include *.txt *.cfg
+include buildout.cfg
+include versions.cfg
+recursive-include collective *.py *.txt
+include .travis.yml
