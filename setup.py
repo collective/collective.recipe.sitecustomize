@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from setuptools import find_packages
 from setuptools import setup
 
@@ -20,7 +21,6 @@ setup(
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.4",
     ],
     url='https://github.com/collective/' + name,
     packages=find_packages(exclude=['ez_setup']),
