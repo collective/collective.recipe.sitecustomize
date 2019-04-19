@@ -25,6 +25,3 @@ after_success:
   - coveralls
 after_failure:
   - bin/buildout annotate
-  - bin/csslint --version
-  - bin/jshint --version
-  - bin/jscs --version
