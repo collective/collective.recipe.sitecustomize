@@ -2,8 +2,29 @@ language: python
 python:
   - 2.7
   - 3.4
-install:
+sudo: false
+cache:
+  directories:
+  - $HOME/.pylint.d
+  - eggs
+matrix:
+  fast_finish: true
+before_install:
   - pip install -r buildout_requirements.txt
-  - buildout
+install:
+  - python bootstrap.py -c buildout.cfg
+  - bin/buildout annotate
+  - bin/buildout -N -q
 # command to run tests
-script: bin/test
+script:
+  - bin/code-analysis
+  - bin/test
+  - pylint --py3k --disable=no-absolute-import src/sc/recipe/staticresources
+after_success:
+  - bin/createcoverage --output-dir=htmlcov
+  - coveralls
+after_failure:
+  - bin/buildout annotate
+  - bin/csslint --version
+  - bin/jshint --version
+  - bin/jscs --version
