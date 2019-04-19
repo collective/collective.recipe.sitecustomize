@@ -30,7 +30,7 @@ We'll run the buildout with the encoding option set to utf-8::
     ... """ % { 'encoding' : 'utf-8'})
 
     >>> print system(buildout)
-    ...
+    Uninstalling unicode.
     Installing unicode.
     unicode: Setting 'utf-8' encoding as default
     ...
