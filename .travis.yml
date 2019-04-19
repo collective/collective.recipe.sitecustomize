@@ -1,7 +1,6 @@
 language: python
 python:
   - 2.7
-  - 3.4
 sudo: false
 cache:
   directories:
@@ -19,9 +18,6 @@ install:
 script:
   - bin/code-analysis
   - bin/test
-  - pylint --py3k --disable=no-absolute-import src/sc/recipe/staticresources
-after_success:
-  - bin/createcoverage --output-dir=htmlcov
-  - coveralls
+  - pylint --py3k --disable=no-absolute-import collective/recipe/sitecustomize
 after_failure:
   - bin/buildout annotate
