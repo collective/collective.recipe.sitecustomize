@@ -1,0 +1,36 @@
+Tests
+=====
+
+We'll start by creating a buildout that uses the recipe::
+
+    >>> write('buildout.cfg',
+    ... """
+    ... [buildout]
+    ... parts = unicode
+    ...
+    ... [unicode]
+    ... recipe = collective.recipe.sitecustomize
+    ... """)
+
+    >>> print system(buildout)
+    Installing unicode.
+    unicode: Setting 'ascii' encoding as default
+    ...
+
+We'll run the buildout with the encoding option set to utf-8::
+
+    >>> write('buildout.cfg',
+    ... """
+    ... [buildout]
+    ... parts = unicode
+    ...
+    ... [unicode]
+    ... recipe = collective.recipe.sitecustomize
+    ... encoding = %(encoding)s
+    ... """ % { 'encoding' : 'utf-8'})
+
+    >>> print system(buildout)
+    ...
+    Installing unicode.
+    unicode: Setting 'utf-8' encoding as default
+    ...
