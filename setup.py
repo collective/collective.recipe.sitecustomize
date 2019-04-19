@@ -3,6 +3,8 @@ from setuptools import find_packages
 from setuptools import setup
 
 name = "collective.recipe.sitecustomize"
+tests_require = ['testfixtures', 'zc.buildout [test]', 'zope.testing']
+
 setup(
     name = name,
     version = "1.0",
@@ -28,5 +30,7 @@ setup(
     install_requires = ['zc.buildout', 'setuptools'],
     entry_points = {'zc.buildout':
                     ['default = %s:Recipe' % name]},
-    test_suite = 'collective.recipe.sitecustomize',
+    tests_require=tests_require,
+    extras_require=dict(test=tests_require),
+    test_suite = 'collective.recipe.sitecustomize.tests.test_docs.test_suite',
     )
