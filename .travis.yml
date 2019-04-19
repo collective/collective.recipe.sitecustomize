@@ -20,8 +20,5 @@ script:
   - bin/code-analysis
   - bin/test
   - pylint --py3k --disable=no-absolute-import collective/recipe/sitecustomize
-after_success:
-  - bin/createcoverage --output-dir=htmlcov
-  - coveralls
 after_failure:
   - bin/buildout annotate
