@@ -35,5 +35,5 @@ class Recipe:
         if os.path.isfile(dest):
             os.chmod(dest, 0o600)
 
-        with open(dest, 'w') as f:
+        with open(dest, 'w+') as f:
             f.write(sitecustomize)
