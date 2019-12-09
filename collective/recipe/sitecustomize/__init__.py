@@ -32,6 +32,8 @@ class Recipe:
 
         sitecustomize = """import sys\nsys.setdefaultencoding('{0}')""".format(encoding)
 
+        if os.path.isfile(dest):
+            os.chmod(dest, 0o600)
+
         with open(dest, 'w') as f:
             f.write(sitecustomize)
-        os.chmod(dest, 600)
