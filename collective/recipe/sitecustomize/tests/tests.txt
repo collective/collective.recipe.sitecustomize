@@ -34,3 +34,10 @@ We'll run the buildout with the encoding option set to utf-8::
     Installing unicode.
     unicode: Setting 'utf-8' encoding as default
     ...
+
+Get the permission mask of the sitecustomize.py::
+
+    >>> import os, sitecustomize
+    >>> filepath = sitecustomize.__file__.replace('pyc','py')
+    >>> print(oct( os.stat(filepath).st_mode)[-3:])
+    600
